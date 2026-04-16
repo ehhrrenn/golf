@@ -3,114 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron's Pro Yardage Guide</title>
+    <title>Aaron's Pro Golf Guide</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #35424a;
-            color: white;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.4; color: #333; background-color: #f4f7f6; padding: 10px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid #2e7d32; }
+        h1 { color: #1b5e20; text-align: center; margin-bottom: 5px; font-size: 22px; }
+        .profile { text-align: center; font-style: italic; color: #666; margin-bottom: 15px; font-size: 13px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-bottom: 10px; table-layout: fixed; }
+        th { background-color: #e8f5e9; color: #2e7d32; padding: 8px; text-align: left; font-size: 11px; text-transform: uppercase; border-bottom: 2px solid #2e7d32; }
+        
+        .club-row { cursor: pointer; border-bottom: 1px solid #eee; }
+        .club-row:active { background-color: #f1f8e9; }
+        td { padding: 10px 5px; font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
+        .club-name { font-weight: bold; color: #1b5e20; width: 25%; }
+        .carry { font-weight: bold; color: #d32f2f; text-align: center; width: 15%; }
+        .short-note { color: #666; font-size: 12px; width: 50%; }
+        .icon { text-align: right; width: 10%; color: #2e7d32; font-size: 10px; }
+        
+        .details { display: none; background-color: #f9f9f9; padding: 12px; font-size: 14px; color: #444; border-left: 4px solid #81c784; line-height: 1.5; }
+        
+        h2 { border-bottom: 2px solid #2e7d32; color: #2e7d32; padding-bottom: 5px; margin-top: 20px; font-size: 17px; }
+        .item-box { margin-bottom: 8px; border: 1px solid #eee; border-radius: 6px; overflow: hidden; }
+        .header { background: #e8f5e9; padding: 10px; font-weight: bold; cursor: pointer; color: #1b5e20; display: flex; justify-content: space-between; font-size: 14px; }
+        
+        /*.wind-box { border-left: 4px solid #78909c; }
+        .shape-draw { border-left: 4px solid #1565c0; }
+        .shape-fade { border-left: 4px solid #ef6c00; }*/
+
+        .footer { text-align: center; font-size: 16px; color: #666; margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Aaron's Pro Yardage Guide</h1>
-    </header>
     <div class="container">
+        <h1>⛳ Aaron's Pro Guide</h1>
+        <div class="profile">100 mph Swing | Smooth Tempo</div>
+
         <table>
             <thead>
                 <tr>
-                    <th>Club</th>
-                    <th>Yardage</th>
+                    <th style="width:25%">Club</th>
+                    <th style="width:15%; text-align:center">Carry</th>
+                    <th style="width:50%">Quick Note</th>
+                    <th style="width:10%"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Driver</td>
-                    <td>250</td>
-                </tr>
-                <tr>
-                    <td>3 Wood</td>
-                    <td>240</td>
-                </tr>
-                <tr>
-                    <td>5 Wood</td>
-                    <td>220</td>
-                </tr>
-                <tr>
-                    <td>Iron 3</td>
-                    <td>210</td>
-                </tr>
-                <tr>
-                    <td>Iron 4</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>Iron 5</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>Iron 6</td>
-                    <td>180</td>
-                </tr>
-                <tr>
-                    <td>Iron 7</td>
-                    <td>170</td>
-                </tr>
-                <tr>
-                    <td>Iron 8</td>
-                    <td>160</td>
-                </tr>
-                <tr>
-                    <td>Iron 9</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <td>Pitching Wedge</td>
-                    <td>140</td>
-                </tr>
-                <tr>
-                    <td>Sand Wedge</td>
-                    <td>100</td>
-                </tr>
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">Driver</td><td class="carry">240</td><td class="short-note">Trust Stiff flex/rhythm.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Full speed shots; trust the Alta CB Stiff shaft to hold the line. Focus on a smooth rhythm and a slow takeaway to avoid the "big miss" to the right.</td></tr>
+                
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">5-Wood</td><td class="carry">205</td><td class="short-note">Long Par 4s / Par 5s.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Use for long Par 4 approaches or reaching Par 5s in two. Higher launch and softer landing than the 5-iron; ideal for holding firm greens.</td></tr>
+                
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">4-Hybrid</td><td class="carry">190</td><td class="short-note">Safety / Thick rough.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Safety off the tee on tight holes. Exceptional out of the rough compared to irons. High flight with significant stopping power.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">5-Iron</td><td class="carry">180</td><td class="short-note">Windy days / Low flight.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Perfect for windy days or firm fairways where you want the ball to stay low and run. Lower trajectory than the hybrid.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">6-Iron</td><td class="carry">170</td><td class="short-note">Mid-range approach.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Standard mid-range approach. High-launch iron shot into greens with the G440 PurFlex feel and graphite speed.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">7-Iron</td><td class="carry">160</td><td class="short-note">Go-to confidence club.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Swing smooth and trust the yardage for mid-fairway approach shots. The G440 cavity provides distance even on slight miss-hits.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">8-Iron</td><td class="carry">150</td><td class="short-note">Attack pins / Soft land.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Attack the pin on "Green Light" situations. High flight, soft landing. Focus on center of the face and maintaining tempo.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">9-Iron</td><td class="carry">135</td><td class="short-note">Controlled scoring shot.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Start of your primary scoring window. High trajectory and high spin. Keep the swing smooth to avoid over-spinning the ball.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">PW (42°)</td><td class="carry">120</td><td class="short-note">Full approach button.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Handles standard approach shots with maximum forgiveness. Replaces a traditional 9-iron loft for modern distance.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)" style="background:#fff9c4"><td class="club-name" style="color:#d32f2f">UW (47°)</td><td class="carry">105</td><td class="short-note"><strong>100-YD BUTTON.</strong></td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4"><strong>THE 100-YARD BUTTON.</strong> Your most important scoring club. Designed for precision and high-launch soft landings. Trust the graphite snap.</td></tr>
+
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">52° Vokey</td><td class="carry">90</td><td class="short-note">Firm turf / No skulling.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">The 8° bounce (F-Grind) avoids the "skull" or "blade" on dry East Bay fairways. Nips the ball clean with a heavier steel feel.</td></tr>
+                
+                <tr class="club-row" onclick="toggle(this)"><td class="club-name">56° Vokey</td><td class="carry">75</td><td class="short-note">Bunkers / Soft lobs.</td><td class="icon">▼</td></tr>
+                <tr class="details"><td colspan="4">Primary bunker and thick rough club. D-Grind allows face to open without leading edge lift. Use the 12° bounce to splash out of sand.</td></tr>
             </tbody>
         </table>
-        <script>
-            // Interactivity example: Alert club yardage when clicked
-            document.querySelectorAll('tr').forEach(row => {
-                row.addEventListener('click', () => {
-                    let club = row.cells[0].innerText;
-                    let yardage = row.cells[1].innerText;
-                    alert(`The ${club} hits ${yardage} yards.`);
-                });
-            });
-        </script>
+
+        <h2>🌬️ WIND MANAGEMENT</h2>
+        <div class="item-box wind-box"><div class="header" onclick="toggleStrat(this)">INTO THE WIND (Headwind) <span class="icon">▼</span></div><div class="details">"When it's breezy, swing easy." Do not swing harder. Club up (e.g., 6-iron for 7-iron). Ball 1 inch back in stance. Smooth, 3/4 swing for piercing flight.</div></div>
+        <div class="item-box wind-box"><div class="header" onclick="toggleStrat(this)">WITH THE WIND (Tailwind) <span class="icon">▼</span></div><div class="details">Wind kills spin. Ball flies further but won't "bite" on greens. Trust carry but expect 5-10yd extra roll. Use 7W or Hybrid for steep descent.</div></div>
+
+        <h2>🎨 SHOT SHAPING</h2>
+        <div class="item-box shape-draw"><div class="header" onclick="toggleStrat(this)">CONTROLLED DRAW (R-to-L) <span class="icon">▼</span></div><div class="details"><strong>Setup:</strong> Aim feet right, face at target. <strong>Swing:</strong> Inside-to-out along feet line. Feel right forearm rotate over left through impact. Great for distance.</div></div>
+        <div class="item-box shape-fade"><div class="header" onclick="toggleStrat(this)">CONTROLLED FADE (L-to-R) <span class="icon">▼</span></div><div class="details"><strong>Setup:</strong> Aim feet left, face at target. <strong>Swing:</strong> Outside-to-in along feet line. "Hold off" the release; keep lead wrist firm. Great for soft green landings.</div></div>
+
+        <h2>🏆 TOURNAMENT RULES</h2>
+        <div class="item-box"><div class="header" onclick="toggleStrat(this)">1. Middle of Green <span class="icon">▼</span></div><div class="details">Ignore tucked pins. Aim for center of every green. A 2-putt par beats a "short-sided" double bogey every time. Protect the card.</div></div>
+        <div class="item-box"><div class="header" onclick="toggleStrat(this)">2. Play for 2nd Shot <span class="icon">▼</span></div><div class="details">If fairway is narrow or hazards are in play, take the 5-wood. A ball in the fairway is 100x better than 20 extra yards in the rough.</div></div>
+        <div class="item-box"><div class="header" onclick="toggleStrat(this)">3. Putt Whenever Possible <span class="icon">▼</span></div><div class="details">If path is clear, use the putter. Minimize the risk of a chunked specialty wedge under tournament pressure.</div></div>
+
+        <div class="footer">Keep your tempo smooth. Focus on the next shot.</div>
     </div>
+
+    <script>
+        function toggle(row) {
+            var details = row.nextElementSibling;
+            var icon = row.querySelector('.icon');
+            if (details.style.display === "table-row") {
+                details.style.display = "none";
+                icon.innerText = "▼";
+            } else {
+                details.style.display = "table-row";
+                icon.innerText = "▲";
+            }
+        }
+        function toggleStrat(header) {
+            var details = header.nextElementSibling;
+            var icon = header.querySelector('.icon');
+            if (details.style.display === "block") {
+                details.style.display = "none";
+                icon.innerText = "▼";
+            } else {
+                details.style.display = "block";
+                icon.innerText = "▲";
+            }
+        }
+    </script>
 </body>
 </html>
